@@ -1,17 +1,21 @@
 import styled from 'styled-components'
 
 const TaskWrapper = styled.div`
+  background-color: white;
   width:80%;
   height: 20%;
   border: 1px solid black;
   border-radius: 5px;
   margin: 5px auto;
-  
+  padding: 5px 5px;
+  display: flex;
+  justify-content: space-between;
 `
 
-const Task = ({item}) => {
-  return <TaskWrapper>
+const Task = ({item, removeItem}) => {
+    return <TaskWrapper>
     <p>{item.title}</p>
+    <button onClick={() => removeItem(item.id)}>Remove</button>
   </TaskWrapper>
 }
 

@@ -1,4 +1,5 @@
 import Task from "./Task";
+import {useState} from "react";
 
 const data = [
   {
@@ -12,7 +13,7 @@ const data = [
     isCompleted: false
   },
   {
-    id: 0,
+    id: 2,
     title: "create second component",
     isCompleted: false
   }
@@ -20,9 +21,22 @@ const data = [
 
 
 
+
 const TaskContainer = () => {
+
+  const [items, setItem] = useState(data);
+
+  const removeItem = (id) =>  {
+    setItem([...items].filter(i => i.id !== id))
+  }
+
   return <div>
-    {data.map(item => <Task item={item}/>)}
+    {items.map(item => <Task
+      key={item.id}
+      item={item}
+      removeItem={removeItem}
+    />)}
+
   </div>
 }
 
