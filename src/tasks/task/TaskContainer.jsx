@@ -20,17 +20,16 @@ const data = [
   }
 ]
 
-
 const TaskContainer = () => {
 
   const [items, setItems] = useState(data);
 
-  const removeItem = (id) =>  {
+  const removeItem = (id) => {
     setItems([...items].filter(i => i.id !== id))
   }
 
   const addItem = (title) => {
-    setItems( [...items,
+    setItems([...items,
       {
         id: items.length,
         title,
@@ -40,19 +39,24 @@ const TaskContainer = () => {
     console.log(items);
   }
 
-
+  const completeItem = (id) => {
+    const copyOfData = [...data];
+    const currentItem = copyOfData.find( i => i.id === id);
+    currentItem.isCompleted = !currentItem.isCompleted;
+    setItems(copyOfData);
+    console.log(copyOfData)
+  }
 
   return <div>
-
     <AddTask items={items}
              addItem={addItem}
     />
 
-      {items.map(items => <Task key={items.id}
-                                items={items}
-                                removeItem={removeItem}
+    {items.map(items => <Task key={items.id}
+                              items={items}
+                              removeItem={removeItem}
+                              completeItem={completeItem}
     />)}
-
   </div>
 }
 

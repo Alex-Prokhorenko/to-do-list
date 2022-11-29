@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const AddTaskWrapper = styled.div`
   background-color: dimgray;
-  width:80%;
+  width: 80%;
   height: 20%;
   border: 1px solid black;
   border-radius: 5px;
@@ -23,7 +23,7 @@ const StyledInput = styled.input`
 
 const AddTask = ({addItem}) => {
   return <AddTaskWrapper>
-    <StyledInput type="text" onKeyDown={e => e.key === 'Enter' && addItem(e.target.value)}/>
+    <StyledInput type="text" placeholder="Add task..." onKeyDown={e => e.key === 'Enter' && addItem(e.target.value)}/>
   </AddTaskWrapper>
 }
 

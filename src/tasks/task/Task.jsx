@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const TaskWrapper = styled.div`
   background-color: dimgray;
-  width:80%;
+  width: 80%;
   height: 20%;
   border: 1px solid black;
   border-radius: 5px;
@@ -12,9 +12,9 @@ const TaskWrapper = styled.div`
   justify-content: space-between;
 `
 
-const Task = ({items, removeItem}) => {
-    return <TaskWrapper>
-    <p>{items.title}</p>
+const Task = ({items, removeItem, completeItem}) => {
+  return <TaskWrapper>
+    <p onClick={() => completeItem(items.id)}>{items.title}</p>
     <button onClick={() => removeItem(items.id)}>Remove</button>
   </TaskWrapper>
 }
