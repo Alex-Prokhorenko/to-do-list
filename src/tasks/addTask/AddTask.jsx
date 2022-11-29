@@ -1,6 +1,6 @@
 const AddTask = () => {
   return <div>
-    Добавить задачу
+    add Task
   </div>
 }
 
