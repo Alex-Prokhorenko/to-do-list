@@ -1,5 +1,6 @@
 import Task from "./Task";
 import {useState} from "react";
+import AddTask from "../addTask/AddTask";
 
 const data = [
   {
@@ -20,21 +21,36 @@ const data = [
 ]
 
 
-
-
 const TaskContainer = () => {
 
-  const [items, setItem] = useState(data);
+  const [items, setItems] = useState(data);
 
   const removeItem = (id) =>  {
-    setItem([...items].filter(i => i.id !== id))
+    setItems([...items].filter(i => i.id !== id))
   }
 
+  const addItem = (title) => {
+    setItems( [...items,
+      {
+        id: items.length,
+        title,
+        isCompleted: false
+      }
+    ])
+    console.log(items);
+  }
+
+
+
   return <div>
-    {items.map(item => <Task
-      key={item.id}
-      item={item}
-      removeItem={removeItem}
+
+    <AddTask items={items}
+             addItem={addItem}
+    />
+
+      {items.map(items => <Task key={items.id}
+                                items={items}
+                                removeItem={removeItem}
     />)}
 
   </div>
