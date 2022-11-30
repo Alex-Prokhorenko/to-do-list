@@ -31,7 +31,7 @@ const TaskContainer = () => {
   const addItem = (title, e) => {
     setItems([...items,
       {
-        id: items.length,
+        id: items.length + new Date(),
         title,
         isCompleted: false
       }

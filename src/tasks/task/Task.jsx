@@ -18,11 +18,16 @@ const StyledParagraph = styled.button`
 `
 
 const Task = ({items, removeItem, completeItem}) => {
-  return <TaskWrapper>
-    <StyledParagraph {...items} onClick={() => completeItem(items.id)}>
+  return <TaskWrapper onClick={() => completeItem(items.id)}>
+    <StyledParagraph {...items}>
       {items.title}
     </StyledParagraph>
-    <Button onClick={() => removeItem(items.id)}>Delete</Button>
+    <Button onClick={
+      (e) => {
+        removeItem(items.id);
+        e.stopPropagation();
+      }}
+    >Delete</Button>
   </TaskWrapper>
 }
 
