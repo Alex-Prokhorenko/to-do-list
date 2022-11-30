@@ -10,7 +10,10 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: dimgray;
+    background-color: #333333;
+    font-family: Georgia, serif;
+    font-style: italic;
+    border: none;
   }
 `
 

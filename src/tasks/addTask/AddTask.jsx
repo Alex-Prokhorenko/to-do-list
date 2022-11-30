@@ -1,30 +1,24 @@
 import styled from "styled-components";
 
-const AddTaskWrapper = styled.div`
-  background-color: dimgray;
-  width: 80%;
-  height: 20%;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 5px auto;
-  padding: 5px 5px;
-  display: flex;
-  justify-content: space-between;
-`
-
 const StyledInput = styled.input`
-  background-color: white;
+  background-color: #E8E4D8;
   border-radius: 5px;
-  resize: none;
   outline: none;
-  width: 90%;
-  margin: 0 auto;
+  resize: none;
+  border: none;
+  width: 80%;
+  height: 26px;
+  margin: 5px auto;
+  padding: 0 5px;
+  font-family: Georgia, serif;
+  font-style: italic;
 `
 
 const AddTask = ({addItem}) => {
-  return <AddTaskWrapper>
-    <StyledInput type="text" placeholder="Add task..." onKeyDown={e => e.key === 'Enter' && addItem(e.target.value)}/>
-  </AddTaskWrapper>
+  return <>
+    <StyledInput type="text" placeholder="Add task..."
+                 onKeyDown={e => e.key === 'Enter' && addItem(e.target.value, e) && addItem('')}/>
+  </>
 }
 
 export default AddTask;

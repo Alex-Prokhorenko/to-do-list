@@ -6,7 +6,7 @@ const data = [
   {
     id: 0,
     title: "create react app",
-    isCompleted: true
+    isCompleted: false
   },
   {
     id: 1,
@@ -25,32 +25,29 @@ const TaskContainer = () => {
   const [items, setItems] = useState(data);
 
   const removeItem = (id) => {
-    setItems([...items].filter(i => i.id !== id))
+    setItems([...items].filter(i => i.id !== id));
   }
 
-  const addItem = (title) => {
+  const addItem = (title, e) => {
     setItems([...items,
       {
         id: items.length,
         title,
         isCompleted: false
       }
-    ])
-    console.log(items);
+    ]);
+    e.target.value = '';
   }
 
   const completeItem = (id) => {
-    const copyOfData = [...data];
-    const currentItem = copyOfData.find( i => i.id === id);
+    const copyOfData = [...items];
+    const currentItem = copyOfData.find(i => i.id === id);
     currentItem.isCompleted = !currentItem.isCompleted;
     setItems(copyOfData);
-    console.log(copyOfData)
   }
 
   return <div>
-    <AddTask items={items}
-             addItem={addItem}
-    />
+    <AddTask items={items} addItem={addItem}/>
 
     {items.map(items => <Task key={items.id}
                               items={items}
