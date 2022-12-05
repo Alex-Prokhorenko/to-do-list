@@ -12,6 +12,7 @@ const Global = createGlobalStyle`
     padding: 0;
     background-color: #333333;
     font-family: Georgia, serif;
+    font-size: 1.1em;
     font-style: italic;
     border: none;
   }

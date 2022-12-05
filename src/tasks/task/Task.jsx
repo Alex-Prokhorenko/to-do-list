@@ -4,8 +4,9 @@ import Button from "./Button";
 const TaskWrapper = styled.div`
   background-color: #E8E4D8;
   width: 80%;
-  border-radius: 5px;
-  margin: 5px auto;
+  min-width: 1050px;
+  border-radius: 10px;
+  margin: 10px auto;
   padding: 5px 5px;
   display: flex;
   justify-content: space-between;

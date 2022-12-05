@@ -1,5 +1,5 @@
 import Task from "./Task";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import AddTask from "../addTask/AddTask";
 
 const data = [
@@ -22,7 +22,11 @@ const data = [
 
 const TaskContainer = () => {
 
-  const [items, setItems] = useState(data);
+  const [items, setItems] = useState(() => {
+    const saved = localStorage.getItem("items");
+    const initialValue = JSON.parse(saved);
+    return initialValue || data;
+  });
 
   const removeItem = (id) => {
     setItems([...items].filter(i => i.id !== id));
@@ -45,6 +49,10 @@ const TaskContainer = () => {
     currentItem.isCompleted = !currentItem.isCompleted;
     setItems(copyOfData);
   }
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   return <div>
     <AddTask items={items} addItem={addItem}/>
