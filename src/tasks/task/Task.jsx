@@ -3,8 +3,7 @@ import Button from "./Button";
 
 const TaskWrapper = styled.div`
   background-color: #E8E4D8;
-  width: 80%;
-  min-width: 1050px;
+  width: 100%;
   border-radius: 10px;
   margin: 10px auto;
   padding: 5px 5px;
@@ -13,6 +12,7 @@ const TaskWrapper = styled.div`
 `
 const StyledParagraph = styled.button`
   background-color: #E8E4D8;
+  font-size: x-large;
   border: none;
   color: ${(items) => (items.isCompleted ? '#84ab68' : '#590503')};
   text-decoration: ${(items) => (items.isCompleted ? 'line-through' : 'none')};
