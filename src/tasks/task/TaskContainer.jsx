@@ -5,18 +5,8 @@ import AddTask from "../addTask/AddTask";
 const data = [
   {
     id: 0,
-    title: "create react app",
-    isCompleted: false
-  },
-  {
-    id: 1,
-    title: "create first component",
-    isCompleted: false
-  },
-  {
-    id: 2,
-    title: "create second component",
-    isCompleted: false
+    title: "open ToDo list",
+    isCompleted: true
   }
 ]
 
