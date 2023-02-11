@@ -8,9 +8,10 @@ const StyledInput = styled.input`
   border: none;
   width: 100%;
   margin-bottom: 10px;
-  padding: 0 10px;
+  padding: 5px 10px;
   font-family: Georgia, serif;
   font-style: italic;
+  font-weight: bold;
 `
 
 const AddTask = ({addItem}) => {
